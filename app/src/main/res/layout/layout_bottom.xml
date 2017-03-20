@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90px"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#fffeee" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <!--  1  -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/layout_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/img_home"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_tab_sports_normal" />
+
+                <TextView
+                    android:id="@+id/tv_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_home"
+                    android:layout_centerHorizontal="true"
+                    android:text="悦动"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!--  2  -->
+        <RelativeLayout
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/layout_challenge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/img_challenge"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_tab_challenge_normal" />
+
+                <TextView
+                    android:id="@+id/tv_challenge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_challenge"
+                    android:layout_centerHorizontal="true"
+                    android:text="挑战"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!--  3  -->
+        <RelativeLayout
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/layout_explorer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/img_explorer"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_tab_explore_normal" />
+
+                <TextView
+                    android:id="@+id/tv_explorer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_explorer"
+                    android:layout_centerHorizontal="true"
+                    android:text="发现"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <!--4-->
+        <RelativeLayout
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/layout_social"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/img_social"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_tab_social_normal" />
+
+                <TextView
+                    android:id="@+id/tv_social"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_social"
+                    android:layout_centerHorizontal="true"
+                    android:text="圈子"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <!--4-->
+        <RelativeLayout
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:id="@+id/layout_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_tab_profile_normal" />
+
+                <TextView
+                    android:id="@+id/tv_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_profile"
+                    android:layout_centerHorizontal="true"
+                    android:text="我"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

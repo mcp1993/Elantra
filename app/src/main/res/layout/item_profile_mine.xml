@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/re_item_mine"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/selector_divider"
+    >
+    <ImageView
+        android:id="@+id/iv_item_mine"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/mine_tab_ic_hardware"
+        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/tv_item_mine"
+            android:layout_below="@id/iv_item_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ddd"
+            android:layout_centerHorizontal="true"
+            />
+
+</RelativeLayout>

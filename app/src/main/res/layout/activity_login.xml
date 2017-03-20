@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_login_QQ"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:src="@mipmap/icon_share_ck_qq_selected"/>
+    <ImageView
+        android:id="@+id/iv_login_WX"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/iv_login_QQ"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:src="@mipmap/icon_share_ck_wechat_session_selected"/>
+    <ImageView
+        android:id="@+id/iv_login_SINA"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/iv_login_QQ"
+        android:layout_marginBottom="30dp"
+        android:src="@mipmap/icon_share_ck_weibo_selected"/>
+</RelativeLayout>
