@@ -18,7 +18,7 @@ public class SportPageAdapter extends FragmentPagerAdapter {
 
     public SportPageAdapter(FragmentManager fm) {
         super(fm);
-
+        //
         fragmentList = new ArrayList<>();
         fragmentList.add(new StepFragment());
         fragmentList.add(new RunFragment());
