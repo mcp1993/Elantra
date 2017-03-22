@@ -43,7 +43,6 @@ public class MainActivity extends AutoLayoutActivity implements
 
     @BindView(com.mcp1993.elantra .R.id.frame_content)
     FrameLayout frame_content;
-
     @BindView(com.mcp1993.elantra .R.id.layout_home)
      RelativeLayout layout_home;
     @BindView(com.mcp1993.elantra .R.id.layout_challenge)
@@ -111,8 +110,8 @@ public class MainActivity extends AutoLayoutActivity implements
         super.onCreate(savedInstanceState);
         setContentView(com.mcp1993.elantra .R.layout.activity_main);
         ButterKnife.bind(this);
-        StatusBarCompat.setStatusBarColor(this, R.color.bottom_text_color_normal, false);
-//        getPermission();
+        StatusBarCompat.setStatusBarColor(this, R.color.bg_all, false);
+        getPermission();
         initView();
     }
 
