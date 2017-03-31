@@ -7,9 +7,20 @@ import java.io.Serializable;
  */
 
 public class Challenge_horBean implements Serializable{
+    private static final long serialVersionUID =1L;
     private String reason;
     private Challenge_horResult result;
     private int error_code;
+
+
+    public Challenge_horBean(String reason, Challenge_horResult result, int error_code) {
+        this.reason = reason;
+        this.result = result;
+        this.error_code = error_code;
+    }
+
+    public Challenge_horBean() {
+    }
 
     public String getReason() {
         return reason;

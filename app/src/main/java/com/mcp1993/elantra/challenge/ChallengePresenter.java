@@ -24,6 +24,7 @@ public class ChallengePresenter extends BasePresenter<ChallengeView> {
             @Override
             public void onSuccess(Challenge_horBean model) {
                 mvpView.showHorView(model);
+
             }
 
             @Override

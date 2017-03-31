@@ -9,9 +9,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.mcp1993.elantra.R;
 import com.mcp1993.elantra.challenge.bean.Challenge_horData;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +43,14 @@ public class HorRecyclerAdapter extends  RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
-        Picasso.with(context).load(datas.get(position).getThumbnail_pic_s())
-                .resize(200, 80)
+//        Picasso.with(context).load(datas.get(position).getThumbnail_pic_s())
+//                .resize(200, 80)
+//                .centerCrop()
+//                .into(  ((ItemViewHolder) holder).img_challenge);
+        Glide.with(context).load(datas.get(position).getThumbnail_pic_s())
+                .override(200,80)
                 .centerCrop()
-                .into(  ((ItemViewHolder) holder).img_challenge);
+                .into(((ItemViewHolder) holder).img_challenge);
 //            viewHolder.challenge_state.setText(datas.get(position).getTitle());
         ((ItemViewHolder) holder).challenge_time.setText(datas.get(position).getDate());
         ((ItemViewHolder) holder).join.setText(datas.get(position).getTitle());

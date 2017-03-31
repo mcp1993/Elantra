@@ -1,13 +1,16 @@
 package com.mcp1993.elantra.challenge.bean;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
+
 import java.io.Serializable;
 
 /**
  * Created by Administrator on 2017/2/10 0010.
  */
-
+@Entity
 public class Challenge_horData implements Serializable{
-
+    private static final long serialVersionUID =1L;
     private String uniquekey;
     private String title;
     private String date;
@@ -18,6 +21,22 @@ public class Challenge_horData implements Serializable{
     private String thumbnail_pic_s02;
     private String thumbnail_pic_s03;
 
+    @Generated(hash = 134817119)
+    public Challenge_horData(String uniquekey, String title, String date, String category, String author_name, String url,
+            String thumbnail_pic_s, String thumbnail_pic_s02, String thumbnail_pic_s03) {
+        this.uniquekey = uniquekey;
+        this.title = title;
+        this.date = date;
+        this.category = category;
+        this.author_name = author_name;
+        this.url = url;
+        this.thumbnail_pic_s = thumbnail_pic_s;
+        this.thumbnail_pic_s02 = thumbnail_pic_s02;
+        this.thumbnail_pic_s03 = thumbnail_pic_s03;
+    }
+    @Generated(hash = 255457321)
+    public Challenge_horData() {
+    }
     public String getUniquekey() {
         return uniquekey;
     }

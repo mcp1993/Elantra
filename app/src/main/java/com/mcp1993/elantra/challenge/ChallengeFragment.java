@@ -19,16 +19,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mcp1993.elantra.APP;
 import com.mcp1993.elantra.R;
 import com.mcp1993.elantra.base.MFragment;
+import com.mcp1993.elantra.challenge.adapter.HorRecyclerAdapter;
+import com.mcp1993.elantra.challenge.adapter.SportsAdapter;
+import com.mcp1993.elantra.challenge.adapter.WXnewRecyclerAdapter;
 import com.mcp1993.elantra.challenge.bean.Challenge_horBean;
 import com.mcp1993.elantra.challenge.bean.Challenge_horData;
 import com.mcp1993.elantra.challenge.bean.TopViewBean;
 import com.mcp1993.elantra.challenge.bean.WXNewBean;
 import com.mcp1993.elantra.challenge.bean.WXNewList;
-import com.mcp1993.elantra.challenge.adapter.HorRecyclerAdapter;
-import com.mcp1993.elantra.challenge.adapter.SportsAdapter;
-import com.mcp1993.elantra.challenge.adapter.WXnewRecyclerAdapter;
+import com.mcp1993.elantra.dao.Challenge_horDataDao;
+import com.mcp1993.elantra.utils.NetworkUtil;
 import com.mcp1993.elantra.view.AutoLinearLayoutManager;
 import com.squareup.picasso.Picasso;
 
@@ -38,6 +41,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Observable;
+import rx.schedulers.Schedulers;
+
 
 /**
  * Created by Administrator on 2017/2/8 0008.
@@ -75,7 +81,8 @@ public class ChallengeFragment extends MFragment<ChallengePresenter> implements 
     private SportsAdapter sportsAdapter;
     private Intent intent;
     private TopViewBean topViewBean;
-
+    private long count;//用来记录从数据库取出指定项的数量
+    private List<Object> mItems;
     @Override
     public ChallengePresenter createPresenter() {
         return new ChallengePresenter(this);
@@ -100,6 +107,25 @@ public class ChallengeFragment extends MFragment<ChallengePresenter> implements 
         mPresenter.getTopBean( "西游降魔篇");
         mPresenter.getWXNEW();
         mPresenter.getSportBean();
+        //读缓存
+        if (null != APP.getDaoSession().getChallenge_horDataDao().loadAll()
+                && 0 <APP.getDaoSession().getChallenge_horDataDao().loadAll().size()
+                && !NetworkUtil.isAvailable(getActivity())){
+            datas.clear();//清空集合，为了保险起见
+            datas.addAll(APP.getDaoSession().getChallenge_horDataDao().loadAll());
+
+            mAdapter = new HorRecyclerAdapter(datas, getActivity());
+            recy_clerview.setAdapter(mAdapter);
+            recy_clerview.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener(){
+                @Override
+                public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+                    super.onTouchEvent(rv, e);
+                }
+            });
+            mAdapter.setOnItemClickListener(this);
+        }else {
+
+        }
 
         return view;
     }
@@ -184,6 +210,13 @@ public class ChallengeFragment extends MFragment<ChallengePresenter> implements 
             }
         });
         mAdapter.setOnItemClickListener(this);
+
+        //将数据插入数据库
+        Observable.from(datas).subscribeOn(Schedulers.io()).subscribe(challenge_horData -> {
+            //避免插入重复数据的逻辑
+            count = APP.getDaoSession().getChallenge_horDataDao().queryBuilder().where(Challenge_horDataDao.Properties.Uniquekey.eq(challenge_horData.getUniquekey())).count();
+            if (count == 0) APP.getDaoSession().getChallenge_horDataDao().insertOrReplaceInTx(challenge_horData);
+        });
 
     }
 
